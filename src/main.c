@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 04:57:51 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 05:43:27 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,10 +160,10 @@ int			main(int ac, char **av)
 		{
 			if ((fd = open(av[2], O_RDONLY)) != -1)
 			{
+				mlx.size = ft_atoi(av[3]);
 				g_path = ft_strdup(av[2]);
 				parse_instructions(&mlx, fd);
 				close(fd);
-				mlx.size = ft_atoi(av[3]);
 				g_sp = mlx.size / 2;
 				init_window(&mlx);
 			}

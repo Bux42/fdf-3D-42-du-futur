@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 00:16:35 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 05:34:55 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 05:43:52 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,15 @@ int			valid_position(int *xyz, int size)
 		bad++;
 	if (bad == 3)
 		return (1);
-	ft_putendl("Bad instructions, skipping");
+	ft_putstr("3D Array Size:");
+	ft_putnbr(size);
+	ft_putstr("\nx:");
+	ft_putnbr(xyz[0]);
+	ft_putstr(" y:");
+	ft_putnbr(xyz[1]);
+	ft_putstr(" z:");
+	ft_putnbr(xyz[2]);
+	ft_putendl("\nBad instructions, skipping");
 	return (0);
 }
 

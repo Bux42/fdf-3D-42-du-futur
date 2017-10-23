@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/21 21:31:46 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 02:26:59 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 05:45:14 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void		draw_instructions(t_m *m, t_ins **ins)
 		else
 		{
 			line2 = rotation(m->mat[cp->x][cp->y][cp->z], m);
-			ft_putchar('1');
 			draw_line(line1, line2, m);
 		}
 		cp = cp->next;

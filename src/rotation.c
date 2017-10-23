@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/22 20:22:12 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 02:17:23 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 05:44:47 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@ void		get_center(t_m *m)
 	cp.y = m->mat[center][center][center].y;
 	cp.z = m->mat[center][center][center].z;
 	line = rotation2(cp, m);
-	ft_putstr("\tx:");ft_putnbr(line.x);ft_putstr(" y:");ft_putnbr(line.y);ft_putstr(" z:");ft_putnbr(line.z);ft_putchar('\n');
 	m->decx = (HEIGHT / 2) - line.x;
 	m->decy = (WIDTH / 2) - line.y;
-	ft_putstr("decx:");ft_putnbr(m->decx);ft_putstr(" decy:");ft_putnbr(m->decy);ft_putchar('\n');
 }
 
 void		degree_to_rad(t_m *m)
