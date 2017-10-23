@@ -6,11 +6,28 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 00:16:35 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 02:25:19 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 05:34:55 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
+
+int			valid_position(int *xyz, int size)
+{
+	int		bad;
+
+	bad = 0;
+	if (xyz[0] < size && xyz[0] > -1)
+		bad++;
+	if (xyz[1] < size && xyz[1] > -1)
+		bad++;
+	if (xyz[2] < size && xyz[2] > -1)
+		bad++;
+	if (bad == 3)
+		return (1);
+	ft_putendl("Bad instructions, skipping");
+	return (0);
+}
 
 void		add_ins(char *str, t_m *m)
 {
@@ -32,7 +49,10 @@ void		add_ins(char *str, t_m *m)
 			xyz[1] = ft_atoi(match);
 			match = &ft_strchr(&match[1], ',')[1];
 			xyz[2] = ft_atoi(match);
-			ins_push_back(m->first, &m->ins, xyz);
+			if (valid_position(xyz, m->size))
+				ins_push_back(m->first, &m->ins, xyz);
+			else if (m->first == 1)
+				exit(1);
 		}
 		i++;
 	}

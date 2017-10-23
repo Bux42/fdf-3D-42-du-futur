@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 04:46:00 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 05:22:18 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void				free_list(t_ins **ins);
 
 void				parse_instructions(t_m *m, int fd);
 void				add_ins(char *str, t_m *m);
+int					valid_position(int *xyz, int size);
 
 int					g_sp;
 void				allocate_matrice(t_m *m);
