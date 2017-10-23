@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 05:22:18 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 06:56:18 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void				init_bres(t_d *bres, t_l line1, t_l line2);
 void				get_center(t_m *m);
 void				draw_line(t_l line1, t_l line2, t_m *m);
 void				draw_points(t_m *m);
+void				clean_img(t_m *m);
 
 void				degree_to_rad(t_m *m);
 t_l					rotation(t_mat mat, t_m *m);

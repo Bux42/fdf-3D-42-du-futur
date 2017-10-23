@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/21 21:31:46 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 05:45:14 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 06:51:47 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,59 +23,9 @@ void		clean_img(t_m *m)
 		j = -1;
 		while (++j < WIDTH)
 		{
-			put_pixel(m, i, j , 0x000000);
+			put_pixel(m, i, j, 0x000000);
 		}
 	}
-}
-
-void		draw_instructions(t_m *m, t_ins **ins)
-{
-	t_ins	*cp;
-	t_l		line1;
-	t_l		line2;
-
-	cp = (*ins);
-	while (cp)
-	{
-		if (cp->start)
-			line1 = rotation(m->mat[cp->x][cp->y][cp->z], m);
-		else
-		{
-			line2 = rotation(m->mat[cp->x][cp->y][cp->z], m);
-			draw_line(line1, line2, m);
-		}
-		cp = cp->next;
-	}
-}
-
-void		draw_points(t_m *m)
-{
-	int		i;
-	int		j;
-	int		k;
-	int		color;
-	t_l		line;
-
-	i = -1;
-	color = 0x444444;
-	clean_img(m);
-	degree_to_rad(m);
-	get_center(m);
-	while (++i < m->size)
-	{
-		j = -1;
-		while (++j < m->size)
-		{
-			k = -1;
-			while (++k < m->size)
-			{
-				line = rotation(m->mat[i][j][k], m);
-				put_pixel(m, line.x, line.y, color);
-			}
-		}
-	}
-	draw_instructions(m, &m->ins);
-	mlx_put_image_to_window(m->ptr, m->win, m->img, 0, 0);
 }
 
 void		put_pixel(t_m *m, int x, int y, int color)
