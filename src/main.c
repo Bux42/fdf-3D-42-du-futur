@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/22 23:35:13 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 03:27:05 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int			mouse_hook(int button, int x, int y, t_m *m)
 	ft_putnbr(y);
 	ft_putchar(m->bpp);
 	ft_putchar('\n');
-	if (button == 4)
+	if (button == 6)
 		m->rotx++;
 	draw_points(m);
 	return (0);
@@ -32,7 +32,6 @@ int			key_hook(int keycode, t_m *m)
 {
 	if (keycode == 53)
 		exit(1);
-	m->nbp = 0;
 	ft_putstr("Keycode:");
 	ft_putnbr(keycode);
 	ft_putchar('\n');
@@ -135,15 +134,26 @@ void		fill(t_m *m)
 int			main(int ac, char **av)
 {
 	t_m		mlx;
+	int		fd;
 
-	g_sp = 50;
 	mlx.rotx = 0;
 	mlx.roty = 0;
 	mlx.rotz = 0;
-	mlx.size = 100;
-	if (ac == 2 && init_window(&mlx))
+	mlx.ins = NULL;
+	if (ac > 1)
 	{
-		ft_putendl(av[1]);
+		ft_putendl("Use: ./fdf3D file [file_path] [3D Array Size] (map should fit for the size)");
+		if (ft_strcmp(av[1], "file") == 0)
+		{
+			if ((fd = open(av[2], O_RDONLY)) != -1)
+			{
+				parse_instructions(&mlx, fd);
+				mlx.size = ft_atoi(av[3]);
+				g_sp = mlx.size / 2;
+				init_window(&mlx);
+				close(fd);
+			}
+		}
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/22 22:38:17 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 02:50:51 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,21 @@
 
 # define HEADER_H
 
-# define WIDTH 1000
-# define HEIGHT 1000
+# define WIDTH 1300
+# define HEIGHT 1300
 
 # include "../libft/includes/libft.h"
 # include "../minilibx_macos/mlx.h"
 # include <math.h>
+
+typedef struct		s_ins
+{
+	int				x;
+	int				y;
+	int				z;
+	int				start;
+	struct s_ins	*next;
+}					t_ins;
 
 typedef struct		s_mat
 {
@@ -57,7 +66,7 @@ typedef struct		s_m
 	int				bpp;
 	int				sl;
 	int				endian;
-	int				nbp;
+	int				first;;
 	int				decx;
 	int				decy;
 	int				size;
@@ -67,10 +76,17 @@ typedef struct		s_m
 	float			endx;
 	float			endy;
 	float			endz;
-	struct s_l				line;
-	struct s_d				bres;
-	struct s_mat			***mat;
+	struct s_ins	*ins;
+	struct s_l		line;
+	struct s_d		bres;
+	struct s_mat	***mat;
 }					t_m;
+
+t_ins				*create_ins(int x, int y, int z, int first);
+void				ins_push_back(int first, t_ins **ins, int *xyz);
+
+void				parse_instructions(t_m *m, int fd);
+void				add_ins(char *str, t_m *m);
 
 int					g_sp;
 void				allocate_matrice(t_m *m);

@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/21 21:31:46 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/22 23:37:45 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 02:26:59 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,27 @@ void		clean_img(t_m *m)
 		{
 			put_pixel(m, i, j , 0x000000);
 		}
+	}
+}
+
+void		draw_instructions(t_m *m, t_ins **ins)
+{
+	t_ins	*cp;
+	t_l		line1;
+	t_l		line2;
+
+	cp = (*ins);
+	while (cp)
+	{
+		if (cp->start)
+			line1 = rotation(m->mat[cp->x][cp->y][cp->z], m);
+		else
+		{
+			line2 = rotation(m->mat[cp->x][cp->y][cp->z], m);
+			ft_putchar('1');
+			draw_line(line1, line2, m);
+		}
+		cp = cp->next;
 	}
 }
 
@@ -54,6 +75,7 @@ void		draw_points(t_m *m)
 			}
 		}
 	}
+	draw_instructions(m, &m->ins);
 	mlx_put_image_to_window(m->ptr, m->win, m->img, 0, 0);
 }
 
