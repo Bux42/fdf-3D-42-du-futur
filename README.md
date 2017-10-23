@@ -21,3 +21,5 @@ Map file creation:
 See the cube example in the maps folder.
 
 It goes like XYZ starting position then => to which position should the starting position draw a line
+
+![alt text](https://i.imgur.com/UjrwnoC.png)
