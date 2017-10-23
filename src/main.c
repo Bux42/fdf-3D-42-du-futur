@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 03:27:05 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 04:57:51 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int			mouse_hook(int button, int x, int y, t_m *m)
 	ft_putchar(m->bpp);
 	ft_putchar('\n');
 	if (button == 6)
-		m->rotx++;
+		m->roty++;
+	if (button == 7)
+		m->roty--;
 	draw_points(m);
 	return (0);
 }
@@ -57,6 +59,8 @@ int			key_hook(int keycode, t_m *m)
 		g_sp -= 5;
 		fill(m);
 	}
+	if (keycode == 117)
+		free_list(&m->ins);
 	ft_putstr("Rot_X:");ft_putnbr(m->rotx);ft_putstr(" Rox_Y:");ft_putnbr(m->roty);ft_putstr(" Rot_Z:");ft_putnbr(m->rotz);ft_putchar('\n');
 	draw_points(m);
 	return (0);
@@ -64,6 +68,15 @@ int			key_hook(int keycode, t_m *m)
 
 int			expose_hook(t_m *m)
 {
+	int		fd;
+
+	if ((fd = open(g_path, O_RDONLY)) != -1)
+	{
+		free_list(&m->ins);
+		parse_instructions(m, fd);
+		close(fd);
+	}
+	ft_putendl(g_path);
 	ft_putendl("\tExpose Hook");
 	draw_points(m);
 	return (0);
@@ -147,11 +160,12 @@ int			main(int ac, char **av)
 		{
 			if ((fd = open(av[2], O_RDONLY)) != -1)
 			{
+				g_path = ft_strdup(av[2]);
 				parse_instructions(&mlx, fd);
+				close(fd);
 				mlx.size = ft_atoi(av[3]);
 				g_sp = mlx.size / 2;
 				init_window(&mlx);
-				close(fd);
 			}
 		}
 	}
