@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 07:00:16 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 07:02:38 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 00:59:51 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,10 @@ void		fill(t_m *m)
 				m->mat[i][j][k].x = j * g_sp;
 				m->mat[i][j][k].y = k * g_sp;
 				m->mat[i][j][k].z = i * g_sp;
+				m->mat[i][j][k].pos = 0;
 			}
 		}
 	}
+	m->mat[0][0][0].pos = 1;
 	ft_putendl("\tMap Filled");
 }

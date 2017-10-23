@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 06:50:10 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 00:11:38 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 00:18:34 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,13 @@ void		draw_points(t_m *m)
 			{
 				line = rotation(m->mat[i][j][k], m);
 				put_pixel(m, line.x, line.y, 0x444444);
+				if (m->mat[i][j][k].pos)
+				{
+					put_pixel(m, line.x + 1, line.y, 0x50f442);
+					put_pixel(m, line.x - 1, line.y, 0x50f442);
+					put_pixel(m, line.x, line.y + 1, 0x50f442);
+					put_pixel(m, line.x, line.y - 1, 0x50f442);
+				}
 			}
 		}
 	}

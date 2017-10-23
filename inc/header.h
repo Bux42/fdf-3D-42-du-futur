@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 23:01:11 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 00:57:06 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct		s_mat
 	int				x;
 	int				y;
 	int				z;
+	int				pos;
 }					t_mat;
 
 typedef struct		s_l
@@ -86,6 +87,11 @@ typedef struct		s_m
 char				*g_path;
 struct timeval		g_time;
 struct timeval		g_time2;
+
+void				get_pos(t_m *m, int *xyz);
+void				move_x(int gap, t_m *m);
+void				move_y(int gap, t_m *m);
+void				move_z(int gap, t_m *m);
 
 t_ins				*create_ins(int x, int y, int z, int first);
 void				ins_push_back(int first, t_ins **ins, int *xyz);

@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 07:01:48 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 01:06:59 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,25 @@ int			mouse_hook(int button, int x, int y, t_m *m)
 
 int			key_hook(int keycode, t_m *m)
 {
+	int		xyz[3];
+
+	if (keycode == 87)
+		move_x(1, m);
+	if (keycode == 84)
+		move_x(-1, m);
+	if (keycode == 83)
+		move_y(-1, m);
+	if (keycode == 85)
+		move_y(1, m);
+	if (keycode == 88)
+		move_z(1, m);
+	if (keycode == 86)
+		move_z(-1, m);
 	if (keycode == 53)
 		exit(1);
-	ft_putstr("Keycode:");
+	get_pos(m, xyz);
+	ft_putstr("Cursor Position: Z=");ft_putnbr(xyz[0]);ft_putstr(" X:");ft_putnbr(xyz[1]);ft_putstr(" Y:");ft_putnbr(xyz[2]);
+	ft_putstr("\nKeycode:");
 	ft_putnbr(keycode);
 	ft_putchar('\n');
 	if (keycode == 126)
