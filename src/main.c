@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 06:57:38 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 07:01:48 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,52 +96,6 @@ int			init_window(t_m *m)
 	fill(m);
 	mlx_loop(m->ptr);
 	return (1);
-}
-
-void		allocate_matrice(t_m *m)
-{
-	ft_putendl("\tMap Allocated.");
-	int		i;
-	int		j;
-
-	i = -1;
-	if (!(m->mat = (t_mat***)malloc(sizeof(t_mat**) * m->size)))
-		return ;
-	while (++i < m->size)
-		if (!(m->mat[i] = (t_mat**)malloc(sizeof(t_mat*) * m->size)))
-			return ;
-	i = -1;
-	while (++i < m->size)
-	{
-		j = -1;
-		while (++j < m->size)
-			if (!(m->mat[i][j] = (t_mat*)malloc(sizeof(t_mat) * m->size)))
-				return ;
-	}
-}
-
-void		fill(t_m *m)
-{
-	ft_putendl("\tMap Filled");
-	int		i;
-	int		j;
-	int		k;
-
-	i = -1;
-	while (++i < m->size)
-	{
-		j = -1;
-		while (++j < m->size)
-		{
-			k = -1;
-			while (++k < m->size)
-			{
-				m->mat[i][j][k].x = j * g_sp;
-				m->mat[i][j][k].y = k * g_sp;
-				m->mat[i][j][k].z = i * g_sp;
-			}
-		}
-	}
 }
 
 int			main(int ac, char **av)
