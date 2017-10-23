@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 06:56:18 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 23:01:11 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "../libft/includes/libft.h"
 # include "../minilibx_macos/mlx.h"
 # include <math.h>
+# include <sys/time.h>
 
 typedef struct		s_ins
 {
@@ -83,6 +84,8 @@ typedef struct		s_m
 }					t_m;
 
 char				*g_path;
+struct timeval		g_time;
+struct timeval		g_time2;
 
 t_ins				*create_ins(int x, int y, int z, int first);
 void				ins_push_back(int first, t_ins **ins, int *xyz);

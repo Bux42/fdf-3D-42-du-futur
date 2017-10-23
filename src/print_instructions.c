@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 06:50:10 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 06:56:30 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 00:11:38 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void		draw_points(t_m *m)
 	int		k;
 	t_l		line;
 
+	gettimeofday(&g_time, NULL);
 	i = -1;
 	clean_img(m);
 	degree_to_rad(m);
@@ -58,4 +59,8 @@ void		draw_points(t_m *m)
 	}
 	draw_instructions(m, &m->ins);
 	mlx_put_image_to_window(m->ptr, m->win, m->img, 0, 0);
+	gettimeofday(&g_time2, NULL);
+	ft_putchar('\t');
+	ft_putnbr(g_time2.tv_usec - g_time.tv_usec);
+	ft_putchar('\n');
 }
