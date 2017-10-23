@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 07:00:16 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 07:00:23 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/23 07:02:38 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void		allocate_matrice(t_m *m)
 {
-	ft_putendl("\tMap Allocated.");
 	int		i;
 	int		j;
 
@@ -32,11 +31,11 @@ void		allocate_matrice(t_m *m)
 			if (!(m->mat[i][j] = (t_mat*)malloc(sizeof(t_mat) * m->size)))
 				return ;
 	}
+	ft_putendl("\tMap Allocated.");
 }
 
 void		fill(t_m *m)
 {
-	ft_putendl("\tMap Filled");
 	int		i;
 	int		j;
 	int		k;
@@ -56,4 +55,5 @@ void		fill(t_m *m)
 			}
 		}
 	}
+	ft_putendl("\tMap Filled");
 }
