@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 01:06:59 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 04:23:50 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ int			key_hook(int keycode, t_m *m)
 		move_z(-1, m);
 	if (keycode == 53)
 		exit(1);
-	get_pos(m, xyz);
-	ft_putstr("Cursor Position: Z=");ft_putnbr(xyz[0]);ft_putstr(" X:");ft_putnbr(xyz[1]);ft_putstr(" Y:");ft_putnbr(xyz[2]);
 	ft_putstr("\nKeycode:");
 	ft_putnbr(keycode);
 	ft_putchar('\n');
@@ -77,6 +75,17 @@ int			key_hook(int keycode, t_m *m)
 	}
 	if (keycode == 117)
 		free_list(&m->ins);
+	get_pos(m, xyz);
+	if (keycode == 1)
+		m->add_ins = 1;
+	ft_putstr("Cursor Position: Z=");ft_putnbr(xyz[0]);ft_putstr(" X:");ft_putnbr(xyz[1]);ft_putstr(" Y:");ft_putnbr(xyz[2]);
+	if (keycode == 49)
+	{
+		current_mat = m->mat[xyz[0]][xyz[1]][xyz[2]];
+		sp_line = 1;
+	}
+	if (keycode == 51)
+		sp_line = 0;
 	ft_putstr("Rot_X:");ft_putnbr(m->rotx);ft_putstr(" Rox_Y:");ft_putnbr(m->roty);ft_putstr(" Rot_Z:");ft_putnbr(m->rotz);ft_putchar('\n');
 	draw_points(m);
 	return (0);
@@ -110,6 +119,8 @@ int			init_window(t_m *m)
 	mlx_expose_hook(m->win, expose_hook, m);
 	allocate_matrice(m);
 	fill(m);
+	sp_line = 0;
+	m->add_ins = 1;
 	mlx_loop(m->ptr);
 	return (1);
 }

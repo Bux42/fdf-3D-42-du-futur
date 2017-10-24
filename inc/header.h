@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 00:57:06 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 04:20:26 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct		s_m
 	int				rotx;
 	int				roty;
 	int				rotz;
+	int				add_ins;
 	float			endx;
 	float			endy;
 	float			endz;
@@ -87,6 +88,10 @@ typedef struct		s_m
 char				*g_path;
 struct timeval		g_time;
 struct timeval		g_time2;
+t_l					space_line;
+t_l					current_pos;
+t_mat				current_mat;
+int					sp_line;
 
 void				get_pos(t_m *m, int *xyz);
 void				move_x(int gap, t_m *m);
@@ -114,6 +119,7 @@ void				init_bres(t_d *bres, t_l line1, t_l line2);
 void				get_center(t_m *m);
 void				draw_line(t_l line1, t_l line2, t_m *m);
 void				draw_points(t_m *m);
+void				draw_editor(t_m *m);
 void				clean_img(t_m *m);
 
 void				degree_to_rad(t_m *m);
