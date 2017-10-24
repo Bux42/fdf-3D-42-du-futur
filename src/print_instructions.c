@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 06:50:10 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 09:22:56 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 11:10:31 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void		draw_instructions(t_m *m, t_ins **ins)
 	t_ins	*cp;
 	t_l		line1;
 	t_l		line2;
+	int		xyz[3];
 
+	get_pos(m, xyz);
 	cp = (*ins);
 	while (cp)
 	{
@@ -34,6 +36,21 @@ void		draw_instructions(t_m *m, t_ins **ins)
 			draw_line(line1, line2, m);
 		}
 		cp = cp->next;
+	}
+	if (m->show_pos)
+	{
+		line1 = rotation(m->mat[xyz[0]][xyz[1]][xyz[2]], m);
+		line2 = rotation(m->mat[m->curr_pos.z][m->curr_pos.x][m->curr_pos.y], m);
+		draw_line(line1, line2, m);
+		if (m->new_ins)
+		{
+			ins_push_back(1, &m->ins, xyz);
+			xyz[0] = m->curr_pos.z;
+			xyz[1] = m->curr_pos.x;
+			xyz[2] = m->curr_pos.y;
+			ins_push_back(0, &m->ins, xyz);
+			m->new_ins = 0;
+		}
 	}
 }
 

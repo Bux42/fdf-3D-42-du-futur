@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 10:33:37 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 11:08:13 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,9 @@ typedef struct		s_m
 	int				rotx;
 	int				roty;
 	int				rotz;
+	t_mat			curr_pos;
+	int				show_pos;
+	int				new_ins;
 	float			endx;
 	float			endy;
 	float			endz;

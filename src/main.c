@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 10:33:04 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 11:09:41 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,21 @@ int			key_hook(int keycode, t_m *m)
 	if (keycode == 69 || keycode == 78 || keycode == 117 || keycode == 53)
 		points_spacing(keycode, m);
 	get_pos(m, xyz);
+	if (keycode == 51)
+		m->show_pos = 0;
+	if (keycode == 1)
+		m->new_ins = 1;
+	if (keycode == 49)
+	{
+		m->show_pos = 1;
+		ft_putnbr(xyz[0]);ft_putchar(' ');
+		ft_putnbr(xyz[1]);ft_putchar(' ');
+		ft_putnbr(xyz[2]);ft_putchar('\n');
+		m->curr_pos.z = xyz[0];
+		m->curr_pos.x = xyz[1];
+		m->curr_pos.y = xyz[2];
+		m->curr_pos.pos = 0;
+	}
 	draw_points(m);
 	return (0);
 }
@@ -67,6 +82,8 @@ int			init_window(t_m *m)
 	mlx_expose_hook(m->win, expose_hook, m);
 	allocate_matrice(m);
 	fill(m);
+	m->new_ins = 0;
+	m->show_pos = 0;
 	mlx_loop(m->ptr);
 	return (1);
 }
