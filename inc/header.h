@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 09:49:58 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 10:33:37 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ void				move_x(int gap, t_m *m);
 void				move_y(int gap, t_m *m);
 void				move_z(int gap, t_m *m);
 void				move_cursor(int keycode, t_m *m);
+void				rotate_matrice(int keycode, t_m *m);
+void				points_spacing(int keycode, t_m *m);
 
 t_ins				*create_ins(int x, int y, int z, int first);
 void				ins_push_back(int first, t_ins **ins, int *xyz);

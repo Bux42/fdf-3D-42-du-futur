@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 09:49:56 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 10:33:04 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,37 +34,15 @@ int			key_hook(int keycode, t_m *m)
 {
 	int		xyz[3];
 
+	if (keycode > 122 && keycode < 127)
+		rotate_matrice(keycode, m);
 	if (keycode > 82 && keycode < 89)
 		move_cursor(keycode, m);
-	if (keycode == 53)
-		exit(1);
 	ft_putstr("\nKeycode:");
 	ft_putnbr(keycode);
 	ft_putchar('\n');
-	if (keycode == 126)
-		m->rotx += 10;
-	if (keycode == 125)
-		m->rotx -= 10;
-	if (keycode == 123)
-		m->roty += 10;
-	if (keycode == 124)
-		m->roty -= 10;
-	if (keycode == 116)
-		m->rotz += 10;
-	if (keycode == 121)
-		m->rotz -= 10;
-	if (keycode == 69)
-	{
-		g_sp += 5;
-		fill(m);
-	}
-	if (keycode == 78)
-	{
-		g_sp -= 5;
-		fill(m);
-	}
-	if (keycode == 117)
-		free_list(&m->ins);
+	if (keycode == 69 || keycode == 78 || keycode == 117 || keycode == 53)
+		points_spacing(keycode, m);
 	get_pos(m, xyz);
 	draw_points(m);
 	return (0);
