@@ -6,16 +6,11 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 06:50:10 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 11:10:31 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 13:20:49 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
-
-void		draw_editor(t_m *m)
-{
-	get_center(m);
-}
 
 void		draw_instructions(t_m *m, t_ins **ins)
 {

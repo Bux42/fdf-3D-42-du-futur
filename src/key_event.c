@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/24 09:47:22 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 10:36:19 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/25 01:33:07 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@ void		points_spacing(int keycode, t_m *m)
 void		rotate_matrice(int keycode, t_m *m)
 {
 	if (keycode == 126)
-		m->rotx += 10;
+		m->rotx += 1;
 	if (keycode == 125)
-		m->rotx -= 10;
+		m->rotx -= 1;
 	if (keycode == 123)
-		m->roty += 10;
+		m->roty += 1;
 	if (keycode == 124)
-		m->roty -= 10;
+		m->roty -= 1;
 	if (keycode == 116)
-		m->rotz += 10;
+		m->rotz += 1;
 	if (keycode == 121)
-		m->rotz -= 10;
+		m->rotz -= 1;
 }
 
 void		move_cursor(int keycode, t_m *m)

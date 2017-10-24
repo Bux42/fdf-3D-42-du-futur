@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 12:53:48 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/25 01:53:08 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ int			key_hook(int keycode, t_m *m)
 		m->show_pos = 0;
 	if (keycode == 1)
 		m->new_ins = 1;
+	if (keycode == 4)
+	{
+	}
 	if (keycode == 49)
 	{
 		m->show_pos = 1;
@@ -72,6 +75,12 @@ int			expose_hook(t_m *m)
 	return (0);
 }
 
+int			loop_hook(t_m *m)
+{
+	mlx_hook(m->win, 2, 1L << 0,  &key_hook, m);
+	return (0);
+}
+
 int			init_window(t_m *m)
 {
 	if (!(m->ptr = mlx_init()))
@@ -86,6 +95,7 @@ int			init_window(t_m *m)
 	fill(m);
 	m->new_ins = 0;
 	m->show_pos = 0;
+	mlx_loop_hook(m->ptr, &loop_hook, m);
 	mlx_loop(m->ptr);
 	return (1);
 }
