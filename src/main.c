@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 04:23:50 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 09:49:56 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,8 @@ int			key_hook(int keycode, t_m *m)
 {
 	int		xyz[3];
 
-	if (keycode == 87)
-		move_x(1, m);
-	if (keycode == 84)
-		move_x(-1, m);
-	if (keycode == 83)
-		move_y(-1, m);
-	if (keycode == 85)
-		move_y(1, m);
-	if (keycode == 88)
-		move_z(1, m);
-	if (keycode == 86)
-		move_z(-1, m);
+	if (keycode > 82 && keycode < 89)
+		move_cursor(keycode, m);
 	if (keycode == 53)
 		exit(1);
 	ft_putstr("\nKeycode:");
@@ -76,32 +66,12 @@ int			key_hook(int keycode, t_m *m)
 	if (keycode == 117)
 		free_list(&m->ins);
 	get_pos(m, xyz);
-	if (keycode == 1)
-		m->add_ins = 1;
-	ft_putstr("Cursor Position: Z=");ft_putnbr(xyz[0]);ft_putstr(" X:");ft_putnbr(xyz[1]);ft_putstr(" Y:");ft_putnbr(xyz[2]);
-	if (keycode == 49)
-	{
-		current_mat = m->mat[xyz[0]][xyz[1]][xyz[2]];
-		sp_line = 1;
-	}
-	if (keycode == 51)
-		sp_line = 0;
-	ft_putstr("Rot_X:");ft_putnbr(m->rotx);ft_putstr(" Rox_Y:");ft_putnbr(m->roty);ft_putstr(" Rot_Z:");ft_putnbr(m->rotz);ft_putchar('\n');
 	draw_points(m);
 	return (0);
 }
 
 int			expose_hook(t_m *m)
 {
-	int		fd;
-
-	if ((fd = open(g_path, O_RDONLY)) != -1)
-	{
-		free_list(&m->ins);
-		parse_instructions(m, fd);
-		close(fd);
-	}
-	ft_putendl(g_path);
 	ft_putendl("\tExpose Hook");
 	draw_points(m);
 	return (0);
@@ -119,8 +89,6 @@ int			init_window(t_m *m)
 	mlx_expose_hook(m->win, expose_hook, m);
 	allocate_matrice(m);
 	fill(m);
-	sp_line = 0;
-	m->add_ins = 1;
 	mlx_loop(m->ptr);
 	return (1);
 }
@@ -142,7 +110,6 @@ int			main(int ac, char **av)
 			if ((fd = open(av[2], O_RDONLY)) != -1)
 			{
 				mlx.size = ft_atoi(av[3]);
-				g_path = ft_strdup(av[2]);
 				parse_instructions(&mlx, fd);
 				close(fd);
 				g_sp = mlx.size / 2;

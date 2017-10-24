@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 04:20:26 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 09:49:58 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ typedef struct		s_m
 	int				rotx;
 	int				roty;
 	int				rotz;
-	int				add_ins;
 	float			endx;
 	float			endy;
 	float			endz;
@@ -85,18 +84,14 @@ typedef struct		s_m
 	struct s_mat	***mat;
 }					t_m;
 
-char				*g_path;
 struct timeval		g_time;
 struct timeval		g_time2;
-t_l					space_line;
-t_l					current_pos;
-t_mat				current_mat;
-int					sp_line;
 
 void				get_pos(t_m *m, int *xyz);
 void				move_x(int gap, t_m *m);
 void				move_y(int gap, t_m *m);
 void				move_z(int gap, t_m *m);
+void				move_cursor(int keycode, t_m *m);
 
 t_ins				*create_ins(int x, int y, int z, int first);
 void				ins_push_back(int first, t_ins **ins, int *xyz);
