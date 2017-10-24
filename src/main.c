@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 11:09:41 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 12:52:50 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int			key_hook(int keycode, t_m *m)
 		m->curr_pos.pos = 0;
 	}
 	draw_points(m);
+	if (keycode == 35)
+		list_to_file(&m->ins);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/24 11:08:13 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/24 12:52:53 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ typedef struct		s_m
 
 struct timeval		g_time;
 struct timeval		g_time2;
+
+void				list_to_file(t_ins **ins);
 
 void				get_pos(t_m *m, int *xyz);
 void				move_x(int gap, t_m *m);
