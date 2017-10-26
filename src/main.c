@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/25 13:38:44 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/26 10:17:55 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int			init_window(t_m *m)
 	m->imga = mlx_get_data_addr(m->img, &(m->bpp), &(m->sl), &(m->endian));
 	m->win = mlx_new_window(m->ptr, WIDTH, HEIGHT, "fdf3D");
 	mlx_mouse_hook(m->win, mouse_hook, m);
-	mlx_key_hook(m->win, key_hook, m);
 	mlx_expose_hook(m->win, expose_hook, m);
 	allocate_matrice(m);
 	fill(m);
