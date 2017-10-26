@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/26 17:25:26 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/26 17:33:48 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,21 +108,19 @@ int			main(int ac, char **av)
 	mlx.roty = -180;
 	mlx.rotz = 0;
 	mlx.ins = NULL;
-	if (ac > 1)
+	if (ac > 2)
 	{
-		ft_putendl("Use: ./fdf3D file [file_path] [3D Array Size] (map should fit for the size)");
-		if (ft_strcmp(av[1], "file") == 0)
+		if ((fd = open(av[1], O_RDONLY)) != -1)
 		{
-			if ((fd = open(av[2], O_RDONLY)) != -1)
-			{
-				if (!av[3] || (mlx.size = ft_atoi(av[3])) < 3)
-					mlx.size = 3;
-				parse_instructions(&mlx, fd);
-				close(fd);
-				g_sp = mlx.size / 2;
-				init_window(&mlx);
-			}
+			if (!av[2] || (mlx.size = ft_atoi(av[2])) < 3)
+				mlx.size = 3;
+			parse_instructions(&mlx, fd);
+			close(fd);
+			g_sp = mlx.size / 2;
+			init_window(&mlx);
 		}
 	}
+	else
+		ft_putendl("Use: ./fdf3D [file_path] [3D Array Size] (map should fit for the size)");
 	return (1);
 }
