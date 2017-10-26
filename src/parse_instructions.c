@@ -6,35 +6,27 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 00:16:35 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/23 06:55:53 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/26 17:25:27 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
 
-int			valid_position(int *xyz, int size)
+int			fix_positions(int *xyz, int size)
 {
-	int		bad;
-
-	bad = 0;
-	if (xyz[0] < size && xyz[0] > -1)
-		bad++;
-	if (xyz[1] < size && xyz[1] > -1)
-		bad++;
-	if (xyz[2] < size && xyz[2] > -1)
-		bad++;
-	if (bad == 3)
-		return (1);
-	ft_putstr("3D Array Size:");
-	ft_putnbr(size);
-	ft_putstr("\nx:");
-	ft_putnbr(xyz[0]);
-	ft_putstr(" y:");
-	ft_putnbr(xyz[1]);
-	ft_putstr(" z:");
-	ft_putnbr(xyz[2]);
-	ft_putendl("\nBad instructions, skipping");
-	return (0);
+	if (xyz[0] >= size)
+		xyz[0] = size - 1;
+	if (xyz[0] < 0)
+		xyz[0] = 1;
+	if (xyz[1] >= size)
+		xyz[1] = size - 1;
+	if (xyz[1] < 0)
+		xyz[1] = 1;
+	if (xyz[2] >= size)
+		xyz[2] = size - 1;
+	if (xyz[2] < 0)
+		xyz[2] = 1;
+	return (1);
 }
 
 void		add_ins(char *str, t_m *m)
@@ -57,13 +49,20 @@ void		add_ins(char *str, t_m *m)
 			xyz[1] = ft_atoi(match);
 			match = &ft_strchr(&match[1], ',')[1];
 			xyz[2] = ft_atoi(match);
-			if (valid_position(xyz, m->size))
+			if (fix_positions(xyz, m->size))
+			{
+			ft_putstr("z:");ft_putnbr(xyz[0]);
+			ft_putstr(" x:");ft_putnbr(xyz[1]);
+			ft_putstr(" y:");ft_putnbr(xyz[2]);ft_putchar('\n');
 				ins_push_back(m->first, &m->ins, xyz);
+			}
 			else if (m->first == 1)
 				exit(1);
 		}
 		i++;
 	}
+	ft_putstr(" Size:");ft_putnbr(m->size);
+	ft_putchar('\n');
 }
 
 void		parse_instructions(t_m *m, int fd)
@@ -77,5 +76,5 @@ void		parse_instructions(t_m *m, int fd)
 		free(str);
 	}
 	if (m->ins == NULL)
-		ft_putendl("Something's fucky");
+		ft_putendl("Is the map empty?");
 }
