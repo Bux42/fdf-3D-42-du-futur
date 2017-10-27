@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 06:50:10 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/25 14:40:25 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/27 10:38:56 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ void		draw_instructions(t_m *m, t_ins **ins)
 		else
 		{
 			line2 = rotation(m->mat[cp->x][cp->y][cp->z], m);
+			line1.x += rand() % (m->shake + 1 - 0) + 0;
+			line1.y += rand() % (m->shake + 1 - 0) + 0;
+			line1.z += rand() % (m->shake + 1 - 0) + 0;
+			line2.x += rand() % (m->shake + 1 - 0) + 0;
+			line2.y += rand() % (m->shake + 1 - 0) + 0;
+			line2.z += rand() % (m->shake + 1 - 0) + 0;
 			draw_line(line1, line2, m);
 		}
 		cp = cp->next;

@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/26 17:28:04 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/27 10:37:05 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ typedef struct		s_m
 	t_mat			curr_pos;
 	int				show_pos;
 	int				new_ins;
+	int				shake;
 	float			endx;
 	float			endy;
 	float			endz;

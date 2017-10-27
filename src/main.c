@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/26 17:33:48 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/27 10:38:55 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ int			key_hook(int keycode, t_m *m)
 		m->curr_pos.y = xyz[2];
 		m->curr_pos.pos = 0;
 	}
+	if (keycode == 75)
+		if (m->shake > 0)
+			m->shake--;
+	if (keycode == 67)
+		m->shake++;
 	draw_points(m);
 	if (keycode == 35)
 		list_to_file(&m->ins);
@@ -94,6 +99,7 @@ int			init_window(t_m *m)
 	fill(m);
 	m->new_ins = 0;
 	m->show_pos = 0;
+	m->shake = 0;
 	mlx_loop_hook(m->ptr, &loop_hook, m);
 	mlx_loop(m->ptr);
 	return (1);
@@ -108,6 +114,7 @@ int			main(int ac, char **av)
 	mlx.roty = -180;
 	mlx.rotz = 0;
 	mlx.ins = NULL;
+	
 	if (ac > 2)
 	{
 		if ((fd = open(av[1], O_RDONLY)) != -1)
