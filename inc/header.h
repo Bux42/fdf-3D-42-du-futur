@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/27 18:34:31 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/27 18:36:23 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "../minilibx_macos/mlx.h"
 # include <math.h>
 # include <sys/time.h>
+# include <pthread.h>
 
 typedef struct		s_ins
 {
