@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/24 09:47:22 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/25 01:33:07 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/27 12:27:57 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		points_spacing(int keycode, t_m *m)
 		fill(m);
 	}
 	if (keycode == 117)
-		free_list(&m->ins);
+		remove_last_line(&m->ins);
 	if (keycode == 53)
 		exit(1);
 }

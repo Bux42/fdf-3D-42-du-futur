@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/27 10:37:05 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/27 11:49:03 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ void				points_spacing(int keycode, t_m *m);
 t_ins				*create_ins(int x, int y, int z, int first);
 void				ins_push_back(int first, t_ins **ins, int *xyz);
 void				free_list(t_ins **ins);
+void				remove_last_line(t_ins **ins);
 
 void				parse_instructions(t_m *m, int fd);
 void				add_ins(char *str, t_m *m);

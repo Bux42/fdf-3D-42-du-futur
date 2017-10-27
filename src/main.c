@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/27 10:38:55 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/27 12:31:20 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,6 @@ int			key_hook(int keycode, t_m *m)
 		m->show_pos = 0;
 	if (keycode == 1)
 		m->new_ins = 1;
-	if (keycode == 4)
-	{
-	}
 	if (keycode == 49)
 	{
 		m->show_pos = 1;

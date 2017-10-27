@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 06:50:10 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/27 10:38:56 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/27 12:42:38 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,21 @@ void		draw_instructions(t_m *m, t_ins **ins)
 	t_l		line1;
 	t_l		line2;
 	int		xyz[3];
+	t_mat	mat2;
 
 	get_pos(m, xyz);
 	cp = (*ins);
 	while (cp)
 	{
+		mat2 = m->mat[cp->x][cp->y][cp->z];
+		mat2.z += rand() % (m->shake + 1 - 0) + 0;
+		mat2.x += rand() % (m->shake + 1 - 0) + 0;
+		mat2.y += rand() % (m->shake + 1 - 0) + 0;
 		if (cp->start)
-			line1 = rotation(m->mat[cp->x][cp->y][cp->z], m);
+			line1 = rotation(mat2, m);
 		else
 		{
-			line2 = rotation(m->mat[cp->x][cp->y][cp->z], m);
-			line1.x += rand() % (m->shake + 1 - 0) + 0;
-			line1.y += rand() % (m->shake + 1 - 0) + 0;
-			line1.z += rand() % (m->shake + 1 - 0) + 0;
-			line2.x += rand() % (m->shake + 1 - 0) + 0;
-			line2.y += rand() % (m->shake + 1 - 0) + 0;
-			line2.z += rand() % (m->shake + 1 - 0) + 0;
+			line2 = rotation(mat2, m);
 			draw_line(line1, line2, m);
 		}
 		cp = cp->next;
