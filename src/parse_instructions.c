@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 00:16:35 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/26 17:28:03 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/27 18:15:06 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,12 @@ void		add_ins(char *str, t_m *m)
 			match = &ft_strchr(&match[1], ',')[1];
 			xyz[2] = ft_atoi(match);
 			if (fix_positions(xyz, m->size))
-			{
-			ft_putstr("z:");ft_putnbr(xyz[0]);
-			ft_putstr(" x:");ft_putnbr(xyz[1]);
-			ft_putstr(" y:");ft_putnbr(xyz[2]);ft_putchar('\n');
 				ins_push_back(m->first, &m->ins, xyz);
-			}
 			else if (m->first == 1)
 				exit(1);
 		}
 		i++;
 	}
-	ft_putstr(" Size:");ft_putnbr(m->size);
-	ft_putchar('\n');
 }
 
 void		parse_instructions(t_m *m, int fd)
