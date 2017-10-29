@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 18:06:29 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/27 18:14:07 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/29 13:49:21 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int			key_hook(int keycode, t_m *m)
 		m->curr_pos.y = xyz[2];
 		m->curr_pos.pos = 0;
 	}
+	if (keycode == 15)
+		m->randcolor *= -1;
 	if (keycode == 75)
 		if (m->shake > 0)
 			m->shake--;

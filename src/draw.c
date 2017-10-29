@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/21 21:31:46 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/25 14:39:21 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/29 14:07:24 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,13 @@ void		init_bres(t_d *bres, t_l line1, t_l line2)
 void		draw_line(t_l line1, t_l line2, t_m *m)
 {
 	init_bres(&m->bres, line1, line2);
+	if (m->randcolor == -1)
+		m->color = rand() % (16777215 + 1 - 255) + 0;
+	else
+		m->color = 0xFFFFFF;
 	while (42)
 	{
-		put_pixel(m, line1.x, line1.y, 0xFFFFFF);
+		put_pixel(m, line1.x, line1.y, m->color);
 		if (line1.x == line2.x && line1.y == line2.y)
 			break ;
 		m->bres.e2 = m->bres.err;

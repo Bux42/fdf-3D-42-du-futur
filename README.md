@@ -34,6 +34,8 @@ Controls:
 
 	delete to hide current line drawn with cursor
 
+	'r' to activate random colors
+
 [x,y,z]=>[x,y,z][x,y,z]
 
 See the cube example in the maps folder.

@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/27 18:13:17 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/29 13:47:59 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int			init_window(t_m *m)
 	m->new_ins = 0;
 	m->show_pos = 0;
 	m->shake = 0;
+	m->color = 16777215;
+	m->randcolor = 1;
 	mlx_loop_hook(m->ptr, &loop_hook, m);
 	mlx_loop(m->ptr);
 	return (1);
