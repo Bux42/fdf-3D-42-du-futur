@@ -8,15 +8,31 @@ cd fdf3D
 
 make
 
-./fdf3D file ./maps/square.f3f 30
+Usage: ./fdf3D [map_path] [3D array size]
 
-Usage: ./fdf3D file [map_path] [3D array size]
+Example: ./fdf3D ./maps/square.f3f 30
 
-Controls: arrow keys & mouse wheel to rotate, '+' and '-' for the zoom
+Controls:
 
-Map Editor: space to define cursor pos as starting point. Numpad to move cursor through X Y and Z position. 's' to add new line to the list. 'p' to print the content of the list as file input. backspace to hide the cursor and line. Delete to remove everything.
+	arrow keys to rotate
+	
+	'+' and '-' for the zoom
 
-Map file creation:
+	'/' and '*' for shaking effect
+
+	suppr to delete drawn lines from the end to the beginning
+	
+	space to set current cursor position as the start of a new line
+
+	'6' and '4' to move cursor in Z axis
+
+	'5' and '2' to move cursor in X axis
+
+	'1' and '3' to move cursor in Y axis
+
+	's' to save current line drawn with cursor
+
+	delete to hide current line drawn with cursor
 
 [x,y,z]=>[x,y,z][x,y,z]
 
