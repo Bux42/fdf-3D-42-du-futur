@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 06:50:10 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/27 18:10:52 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/29 17:57:37 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void		draw_points(t_m *m)
 	clean_img(m);
 	degree_to_rad(m);
 	get_center(m);
-	while (++i < m->size)
+	ft_putnbr(m->showdots);
+	while (m->showdots == 1 && ++i < m->size)
 	{
 		j = -1;
 		while (++j < m->size)

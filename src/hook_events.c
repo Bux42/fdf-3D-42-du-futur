@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 18:06:29 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/29 13:49:21 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/29 17:56:06 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int			key_hook(int keycode, t_m *m)
 {
 	int		xyz[3];
 
+	if (keycode == 2)
+		m->showdots *= -1;
 	if (keycode > 122 && keycode < 127)
 		rotate_matrice(keycode, m);
 	if (keycode > 82 && keycode < 89)

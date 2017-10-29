@@ -38,6 +38,8 @@ Controls:
 
 	'p' to print current lines into instructions
 
+	'd' to enable/disable dots matrice representation (way smoother)
+
 [x,y,z]=>[x,y,z][x,y,z]
 
 See the cube example in the maps folder.

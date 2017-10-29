@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/29 13:37:08 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/29 17:55:49 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct		s_m
 	int				shake;
 	int				color;
 	int				randcolor;
+	int				showdots;
 	float			endx;
 	float			endy;
 	float			endz;
