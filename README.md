@@ -36,6 +36,8 @@ Controls:
 
 	'r' to activate random colors
 
+	'p' to print current lines into instructions
+
 [x,y,z]=>[x,y,z][x,y,z]
 
 See the cube example in the maps folder.
