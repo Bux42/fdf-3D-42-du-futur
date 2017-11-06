@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 00:16:35 by videsvau          #+#    #+#             */
-/*   Updated: 2017/11/05 17:26:09 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/11/06 19:09:09 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void		add_ins(char *str, t_m *m)
 			m->first = 0;
 		if (str[i] == '[')
 		{
-			xyz[0] = ft_atoi(&str[i + 1]) + 20;
+			xyz[0] = ft_atoi(&str[i + 1]);
 			match = &ft_strchr(&str[i + 1], ',')[1];
-			xyz[1] = ft_atoi(match) + 20;
+			xyz[1] = ft_atoi(match);
 			match = &ft_strchr(&match[1], ',')[1];
-			xyz[2] = ft_atoi(match) + 20;
+			xyz[2] = ft_atoi(match);
 			if (fix_positions(xyz, m->size))
 				ins_push_back(m->first, &m->ins, xyz);
 			else if (m->first == 1)
