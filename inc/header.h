@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:13:50 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/29 17:55:49 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/10/29 19:41:59 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ void				draw_line(t_l line1, t_l line2, t_m *m);
 void				draw_points(t_m *m);
 void				draw_editor(t_m *m);
 void				clean_img(t_m *m);
+void				print_menu(t_m *m);
 
 void				degree_to_rad(t_m *m);
 t_l					rotation(t_mat mat, t_m *m);
