@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 18:06:29 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/29 20:05:20 by videsvau         ###   ########.fr       */
+/*   Updated: 2018/01/04 18:02:41 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,17 @@ int			key_hook(int keycode, t_m *m)
 
 	if (keycode == 2)
 		m->showdots *= -1;
+	if (keycode == 12 && m->animate == 0)
+	{
+		ft_putchar('+');
+		m->animate = 1;
+	}
+	else if (keycode == 12 && m->animate == 1)
+	{
+		ft_putchar('-');
+		m->animate = 0;
+	}
+	ft_putnbr(m->animate);
 	if (keycode > 122 && keycode < 127)
 		rotate_matrice(keycode, m);
 	if (keycode > 82 && keycode < 89)
@@ -85,5 +96,12 @@ int			expose_hook(t_m *m)
 int			loop_hook(t_m *m)
 {
 	mlx_hook(m->win, 2, (1L << 0), &key_hook, m);
+	if (m->animate)
+	{
+		m->rotx++;
+		m->roty++;
+		m->rotz++;
+		draw_points(m);
+	}
 	return (0);
 }

@@ -40,6 +40,8 @@ Controls:
 
 	'd' to enable/disable dots matrice representation (way smoother)
 
+	'a' to animate
+
 [x,y,z]=>[x,y,z][x,y,z]
 
 See the cube example in the maps folder.

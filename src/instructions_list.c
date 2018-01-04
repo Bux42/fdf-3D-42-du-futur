@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 00:07:48 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/27 12:42:00 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/12/05 16:45:13 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void		ins_push_back(int first, t_ins **ins, int *xyz)
 {
 	t_ins	*tmp;
 
+	ft_putnbr(first);
 	tmp = (*ins);
 	if (!tmp)
 		(*ins) = create_ins(xyz[0], xyz[1], xyz[2], first);

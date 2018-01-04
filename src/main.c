@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/29 17:56:07 by videsvau         ###   ########.fr       */
+/*   Updated: 2018/01/04 18:02:48 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int			main(int ac, char **av)
 	t_m		mlx;
 	int		fd;
 
-	mlx.rotx = -10;
+	mlx.rotx = 180;
 	mlx.roty = -180;
-	mlx.rotz = 0;
+	mlx.rotz = 180;
 	mlx.ins = NULL;
 	if (ac > 2)
 	{
