@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 20:14:19 by videsvau          #+#    #+#             */
-/*   Updated: 2018/01/04 18:02:48 by videsvau         ###   ########.fr       */
+/*   Updated: 2018/08/19 13:57:35 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int			main(int ac, char **av)
 	mlx.roty = -180;
 	mlx.rotz = 180;
 	mlx.ins = NULL;
+	mlx.animate = 0;
 	if (ac > 2)
 	{
 		if ((fd = open(av[1], O_RDONLY)) != -1)

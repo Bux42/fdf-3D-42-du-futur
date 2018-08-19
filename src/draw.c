@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/21 21:31:46 by videsvau          #+#    #+#             */
-/*   Updated: 2017/10/29 14:07:24 by videsvau         ###   ########.fr       */
+/*   Updated: 2018/08/19 13:55:52 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void		draw_line(t_l line1, t_l line2, t_m *m)
 	while (42)
 	{
 		put_pixel(m, line1.x, line1.y, m->color);
+		m->color++;
 		if (line1.x == line2.x && line1.y == line2.y)
 			break ;
 		m->bres.e2 = m->bres.err;

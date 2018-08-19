@@ -6,7 +6,7 @@
 #    By: videsvau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/21 06:16:20 by videsvau          #+#    #+#              #
-#    Updated: 2017/10/27 18:38:46 by videsvau         ###   ########.fr        #
+#    Updated: 2018/08/19 13:47:54 by videsvau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ LIBINC = ./libft/includes/
 
 # Optimization and Compiler flags and commands
 CC = gcc
-CFLAGS = -fsanitize=address -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
 MFLAGS = -lpthread -framework OpenGL -framework AppKit
 # Debugging flags
 DEBUG = -g
